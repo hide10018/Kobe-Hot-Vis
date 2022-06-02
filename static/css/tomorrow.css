@@ -1,0 +1,62 @@
+.Tomorrow{
+    background-color: rgba(0,0,255,0.7);
+    margin: 50px;
+    padding: 3%;
+    border-radius: 3%;
+    border: 2px solid #000000
+}
+
+.Tomorrow_denger {
+    background: linear-gradient(to right ,red,pink);
+    width: 70%;
+    height: 250px;
+    border-radius: 5%;
+    margin: 20px auto;
+    border: 2px solid #000000
+}
+
+.Tomorrow_pred {
+    background: linear-gradient(to right ,rgb(50, 238, 78),#7fffd4);
+    width: 70%;
+    height: 250px;
+    border-radius: 5%;
+    margin: 20px auto;
+    border: 2px solid #000000
+}
+
+.Tomorrow_weather{
+    background: linear-gradient(to right ,rgb(231, 227, 12),rgb(225, 231, 164));
+    width: 70%;
+    height: 250px;
+    border-radius: 5%;
+    margin: 20px auto;
+    border: 2px solid #000000
+}
+
+.Tomorrow_Temp {
+    height: 250px;
+    width: 70%;
+    background: linear-gradient(to right ,rgb(7, 209, 219),rgb(164, 231, 222));
+    border-radius: 5%;
+    margin: 20px auto;
+    border: 2px solid #000000
+}
+
+.fadeLeft{
+    animation-name:fadeLeftAnime;
+    animation-duration:0.5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+}
+
+@keyframes fadeLeftAnime{
+    from {
+    opacity: 0;
+    transform: translateX(-100px);
+    }
+
+    to {
+    opacity: 1;
+    transform: translateX(0);
+    }
+}

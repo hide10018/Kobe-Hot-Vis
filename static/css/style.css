@@ -1,0 +1,153 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image:url('./image/aozora.jpeg');
+}
+
+header{
+    width: 100%;
+    padding: 10px 1% 10px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background-color:whitesmoke;
+    z-index: 10000;
+}
+
+.title{
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+}
+
+a{
+    text-decoration: none;
+    color: slategray;
+}
+
+.nav_ul{
+    list-style: none;
+    margin: 0;
+    display: flex;
+}
+
+.nav_list{
+    margin: 0 0 0 20px;
+    font-size: 15px;
+}
+
+nav{
+    margin: 0 35px 0 auto;
+}
+
+.exp{
+    margin-top: 70px;
+    padding: 5%;
+}
+
+.main_div{
+    /* padding: 50px; */
+    margin: 0 auto;
+    margin-top: 65px;
+    display: flex;
+    /* flex-wrap: wrap;  */
+    flex-direction: column;
+    height: 100%;
+    width: 85%;
+    /* justify-content: space-between;  */
+}
+
+.Today{
+    background-color: rgba(255, 165, 0, 0.7);
+    padding: 3%;
+    margin: 50px;
+    border-radius: 3%;
+    border: 2px solid #000000
+    
+}
+
+.Today_denger {
+    background: linear-gradient(to right ,red,pink);
+    width: 70%;
+    height: 250px;
+    border-radius: 5%;
+    margin: 20px auto;
+    border: 2px solid #000000
+}
+
+.Today_pred {
+    background: linear-gradient(to right ,rgb(50, 238, 78),#7fffd4);
+    width: 70%;
+    height: 250px;
+    border-radius: 5%;
+    margin: 20px auto;
+    border: 2px solid #000000
+}
+
+.Today_weather{
+    background: linear-gradient(to right ,rgb(231, 227, 12),rgb(225, 231, 164));
+    width: 70%;
+    height: 250px;
+    border-radius: 5%;
+    margin: 20px auto;
+    border: 2px solid #000000
+}
+
+.Today_Temp {
+    height: 250px;
+    width: 70%;
+    background: linear-gradient(to right ,rgb(7, 209, 219),rgb(164, 231, 222));
+    border-radius: 5%;
+    margin: 20px auto;
+    border: 2px solid #000000
+}
+
+.fadeLeft{
+    animation-name:fadeLeftAnime;
+    animation-duration:0.5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+}
+
+@keyframes fadeLeftAnime{
+    from {
+    opacity: 0;
+    transform: translateX(-100px);
+    }
+
+    to {
+    opacity: 1;
+    transform: translateX(0);
+    }
+}
+
+.fadeIn{
+    animation-name:fadeInAnime;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    opacity:0;
+}
+
+@keyframes fadeInAnime{
+    from {
+    opacity: 0;
+    }
+
+    to {
+    opacity: 1;
+    }
+}
+
+@media screen and (max-width: 959px) {
+    .nav_list {
+      display: none;
+    }
+    .title {
+        font-size: 20px;
+    }
+
+    h1{
+        font-size: medium;
+    }
+  }
