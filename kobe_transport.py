@@ -15,40 +15,14 @@ def transport_pred(param):
     pred = reg.predict(param)
     return pred
 
-#変数の初期設定
-#time = datetime.datetime.now(pytz.timezone('Asia/Tokyo')).date()
 endtime = "0000-00-00"
-#pred = []
-#denger = []
-
-#apiを叩く
-# url = "https://weather.tsukumijima.net/api/forecast/city/280010"
-# weather = requests.get(url)
-
-# weather_json = weather.json()
-# day = [weather_json["forecasts"][0]["date"], weather_json["forecasts"][1]["date"], weather_json["forecasts"][2]["date"]]
-# weather = [weather_json["forecasts"][0]["telop"], weather_json["forecasts"][1]["telop"], weather_json["forecasts"][2]["telop"]]
-# maxtemp = [weather_json["forecasts"][0]["temperature"]["max"]["celsius"], weather_json["forecasts"][1]["temperature"]["max"]["celsius"], weather_json["forecasts"][2]["temperature"]["max"]["celsius"]]
-
-# for i in maxtemp:
-#     if isinstance(i, str):
-#         i = np.array(int(i))
-#         pred.append(round(float(transport_pred(i)),3))
-#     else:
-#         i = "測定エラー"
-#         pred.append(i)
-
-# print(maxtemp[1])
-
-
-# print(transport_pred(today_maxtemp))
 
 app = Flask(__name__)
 
 @app.route('/')
 def transport():
     global endtime
-    global day,maxtemp,weather,weather_img
+    global day,maxtemp,weather,weather_img,headsup
     
     pred=[]
     denger=[]
@@ -75,7 +49,7 @@ def transport():
             pred.append("測定エラー")
         else:
             i = np.array(int(i))
-            pred.append(round(float(transport_pred(i)),3))
+            pred.append(round(float(transport_pred(i)),1))
             print(pred)
 
     #predから危険度を振り分ける
@@ -85,12 +59,23 @@ def transport():
         elif i>= 20:
             denger.append("危険度：超危険！") 
         elif i >= 15:
-            denger.append("危険度：高")
+            denger.append("危険度：大")
         elif i >= 5:
             denger.append("危険度：中")
         else:
             denger.append("危険度：小")
+            headsup = "/static/css/image/denger_small.png"
     print(pred,denger)
+    
+    #当日の危険度に応じた注意喚起画像を表示する
+    if denger[0] == "危険度：超危険":
+        headsup = "static/css/image/denger_ex.png"
+    elif denger[0] == "危険度：大":
+        headsup = "/static/css/image/denger_L.png"
+    elif denger[0] == "危険度：中":
+        headsup = "/static/css/image/denger_m.png"
+    elif denger[0] == "危険度：小":
+        headsup = "/static/css/image/denger_small.png"
     
     #最後にapiを呼び出した日付を格納
     endtime = datetime.datetime.now(pytz.timezone('Asia/Tokyo')).date()
@@ -98,11 +83,12 @@ def transport():
     #endtime = endtime - datetime.timedelta(days=1)
     
     #HTMLに渡す変数を返す
-    return render_template("index.html",
+    return render_template("table.html",
                            today_pred = pred[0], today_maxtemp = maxtemp[0],today = day[0], today_weather = weather[0], today_denger = denger[0], today_weather_img = weather_img[0],
                            tomorrow_pred = pred[1], tomorrow_maxtemp = maxtemp[1], tomorrow = day[1], tomorrow_weather = weather[1], tomorrow_denger = denger[1], tomorrow_weather_img = weather_img[1],
-                           dat_pred = pred[2], dat_maxtemp = maxtemp[2], dat = day[2], dat_weather = weather[2], dat_denger = denger[2], dat_weather_img = weather_img[2])
+                           dat_pred = pred[2], dat_maxtemp = maxtemp[2], dat = day[2], dat_weather = weather[2], dat_denger = denger[2], dat_weather_img = weather_img[2],
+                           headsup=headsup)
 
 if __name__ == '__main__':
 
-    app.run(debug = True)
+    app.run(debug=True)

@@ -1,0 +1,32 @@
+.main_table{
+    background-color: cornsilk;
+    margin-bottom: 100px;
+}
+
+.table_head{
+    background-color: orange;
+}
+
+.headsup{
+    margin-left: 333px;
+    margin-bottom: 100px;
+}
+
+.fadeLeft{
+    animation-name:fadeLeftAnime;
+    animation-duration:0.5s;
+    animation-fill-mode:forwards;
+    opacity:0;
+}
+
+@keyframes fadeLeftAnime{
+    from {
+    opacity: 0;
+    transform: translateX(-100px);
+    }
+
+    to {
+    opacity: 1;
+    transform: translateX(0);
+    }
+}

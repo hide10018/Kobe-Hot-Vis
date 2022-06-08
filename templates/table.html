@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <title>熱中症危険度予測AI@神戸</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">
+            熱中症危険度予測AI@神戸
+        </h1>
+        <nav>
+            <ul class="nav_ul">
+                <li class="nav_list"><a href='/'>Top</a></li>
+                <li class="nav_list"><a href='#Predict'>Predict(予測)</a></li>
+                <li class="nav_list"><a href="#headsup">Heads up(注意喚起)</a></li>
+            </ul>
+        </nav> 
+            
+    </header>
+
+    <div class="exp fadeIn">
+        <h4>はじめに</h4>
+        <p>当サイトをご利用頂き、誠にありがとうございます。</p>
+        <p>当サイトは当日、翌日、翌々日の予想最高気温から救急搬送者数を予測し、危険度を"小、中、大、超危険"の４段階で表示するものとなっております。熱中症対策にお役立て頂けますと幸いです。</p>
+        <h4>ご使用にあたっての注意点</h4>
+        <ul>
+            <li>0:00に更新されます。</li>
+            <li>当サイトで表示している数値はあくまで予測です。危険度が低いことは安全を保障するものではございません。</li>
+            <li>測定エラーが表示される場合があります。これはAPIが数値にnullを返すことが原因です。申し訳ありませんが私では対応することが出来ません。</li>
+        </ul>
+        <table id="Predict" border="0" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="http://www.rays-counter.com/"><img src="http://www.rays-counter.com/d508_f6_022/629509f0d82e7/" alt="アクセスカウンター" border="0"></a></td></tr><tr><td align="center"><img src="http://www.rays-counter.com/images/counter_01.gif" border="0"><img src="http://www.rays-counter.com/images/counter_02.gif" border="0"><img src="http://www.rays-counter.com/images/counter_03.gif" border="0"><img src="http://www.rays-counter.com/images/counter_04.gif" border="0" ><img src="http://www.rays-counter.com/images/counter_05.gif" border="0"></td></tr></table>
+    </div>
+    
+
+        <main class="main_div" align="center">
+            <table class="main_table fadeLeft" border="1" >
+                <tr class = "table_head">
+                    <th>日付</th>
+                    <th>危険度</th>
+                    <th>予想搬送者数</th>
+                    <th>天気予報</th>
+                    <th>予想最高気温</th>
+                </tr>
+                <tr>
+                    <td>今日：{{today}}</td>
+                    <td>{{today_denger}}</td>
+                    <td>{{today_pred}}人</td>
+                    <td><img class="Today_weather_img" src={{today_weather_img}} width="100"></td>
+                    <td>{{today_maxtemp}}℃</td>
+                </tr>
+                <tr>
+                    <td>明日：{{tomorrow}}</td>
+                    <td>{{tomorrow_denger}}</td>
+                    <td>{{tomorrow_pred}}人</td>
+                    <td><img class="Tomorrow_weather_img" src={{tomorrow_weather_img}} width="100"></td>
+                    <td>{{tomorrow_maxtemp}}℃</td>
+                </tr>
+                <tr>
+                    <td>明後日：{{dat}}</td>
+                    <td>{{dat_denger}}</td>
+                    <td>{{dat_pred}}人</td>
+                    <td><img class="Dat_weather_img" src={{dat_weather_img}} width="100"></td>
+                    <td>{{dat_maxtemp}}℃</td>
+                </tr>
+            </table>
+            <h2 id="headsup" >注意喚起</h2>
+            <img class="headsup" src={{headsup}} width="500">
+            
+        </main>
+        <h2>データの出典</h2>
+        <ul>
+            <li>気象データ：天気予報 API（livedoor 天気互換）</li>
+            <li>熱中症による救急搬送者数のデータ：総務省消防庁　熱中症情報</li>
+        </ul>
+        <footer>
+            <h3>©️Hidenori Nitta 2022</h3>
+        </footer>
+</body>
+</html>
