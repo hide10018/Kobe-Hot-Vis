@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 0;
     background-image:url('./image/aozora.jpeg');
+    background-attachment: fixed;
 }
 
 header{
@@ -58,49 +59,27 @@ nav{
     /* justify-content: space-between;  */
 }
 
-.Today{
-    background-color: rgba(255, 165, 0, 0.7);
-    padding: 3%;
-    margin: 50px;
-    border-radius: 3%;
-    border: 2px solid #000000
-    
+.main_table{
+    background-color: cornsilk;
+    margin-bottom: 100px;
 }
 
-.Today_denger {
-    background: linear-gradient(to right ,red,pink);
-    width: 70%;
-    height: 250px;
-    border-radius: 5%;
-    margin: 20px auto;
-    border: 2px solid #000000
+.table_head{
+    background-color: orange;
 }
 
-.Today_pred {
-    background: linear-gradient(to right ,rgb(50, 238, 78),#7fffd4);
-    width: 70%;
-    height: 250px;
-    border-radius: 5%;
-    margin: 20px auto;
-    border: 2px solid #000000
+.headsup{
+    margin: 30px 0px 100px 350px;
 }
 
-.Today_weather{
-    background: linear-gradient(to right ,rgb(231, 227, 12),rgb(225, 231, 164));
-    width: 70%;
-    height: 250px;
-    border-radius: 5%;
-    margin: 20px auto;
-    border: 2px solid #000000
-}
-
-.Today_Temp {
-    height: 250px;
-    width: 70%;
-    background: linear-gradient(to right ,rgb(7, 209, 219),rgb(164, 231, 222));
-    border-radius: 5%;
-    margin: 20px auto;
-    border: 2px solid #000000
+footer{
+    width: 100%;
+    padding: 10px 1% 10px;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    background-color:whitesmoke;
+    z-index: 10000;
 }
 
 .fadeLeft{
@@ -149,5 +128,10 @@ nav{
 
     h1{
         font-size: medium;
+    }
+
+    .headsup{
+        width: 210px;
+        margin: 50px 50px 50px 50px;
     }
   }
