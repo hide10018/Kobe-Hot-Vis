@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="icon" type="image/x-icon" href="static/css/image/熱中症_アイコン.png">
 
     <title>熱中症危険度予測AI@神戸</title>
 </head>
@@ -23,18 +24,19 @@
         </nav> 
             
     </header>
-
+<div class="bg">
     <div class="exp fadeIn">
         <h4>はじめに</h4>
         <p>当サイトをご利用頂き、誠にありがとうございます。</p>
-        <p>当サイトは当日、翌日、翌々日の予想最高気温から救急搬送者数を予測し、危険度を"小、中、大、超危険"の４段階で表示するものとなっております。熱中症対策にお役立て頂けますと幸いです。</p>
+        <p>当サイトは当日、翌日、翌々日の予想最高気温・雨が降るかどうかから救急搬送者数を予測し、危険度を"小、中、大、超危険"の４段階で表示するものとなっております。熱中症対策にお役立て頂けますと幸いです。</p>
         <h4>ご使用にあたっての注意点</h4>
         <ul>
             <li>0:00に更新されます。</li>
             <li>当サイトで表示している数値はあくまで予測です。危険度が低いことは安全を保障するものではございません。</li>
             <li>測定エラーが表示される場合があります。これはAPIが数値にnullを返すことが原因です。申し訳ありませんが私では対応することが出来ません。</li>
         </ul>
-        <table id="Predict" border="0" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="http://www.rays-counter.com/"><img src="http://www.rays-counter.com/d508_f6_022/629509f0d82e7/" alt="アクセスカウンター" border="0"></a></td></tr><tr><td align="center"><img src="http://www.rays-counter.com/images/counter_01.gif" border="0"><img src="http://www.rays-counter.com/images/counter_02.gif" border="0"><img src="http://www.rays-counter.com/images/counter_03.gif" border="0"><img src="http://www.rays-counter.com/images/counter_04.gif" border="0" ><img src="http://www.rays-counter.com/images/counter_05.gif" border="0"></td></tr></table>
+        <div id="Predict"></div>
+        <!--<table id="Predict" border="0" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="http://www.rays-counter.com/"><img src="http://www.rays-counter.com/d508_f6_022/629509f0d82e7/" alt="アクセスカウンター" border="0"></a></td></tr><tr><td align="center"><img src="http://www.rays-counter.com/images/counter_01.gif" border="0"><img src="http://www.rays-counter.com/images/counter_02.gif" border="0"><img src="http://www.rays-counter.com/images/counter_03.gif" border="0"><img src="http://www.rays-counter.com/images/counter_04.gif" border="0" ><img src="http://www.rays-counter.com/images/counter_05.gif" border="0"></td></tr></table>-->
     </div>
     
 
@@ -78,6 +80,7 @@
             <li>気象データ：天気予報 API（livedoor 天気互換）</li>
             <li>熱中症による救急搬送者数のデータ：総務省消防庁　熱中症情報</li>
         </ul>
+    </div>
         <footer>
             <h3>©️Hidenori Nitta 2022</h3>
         </footer>

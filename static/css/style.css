@@ -59,6 +59,11 @@ nav{
     /* justify-content: space-between;  */
 }
 
+.bg{
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0px 50px 0px 50px;
+}
+
 .main_table{
     background-color: cornsilk;
     margin-bottom: 100px;
@@ -69,7 +74,9 @@ nav{
 }
 
 .headsup{
-    margin: 30px 0px 100px 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 footer{
@@ -132,6 +139,8 @@ footer{
 
     .headsup{
         width: 210px;
-        margin: 50px 50px 50px 50px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
   }
