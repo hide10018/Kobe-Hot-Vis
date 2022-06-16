@@ -6,120 +6,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/tomorrow.css">
-    <link rel="stylesheet" href="static/css/day_after_tomorrow.css">
+    <link rel="icon" type="image/x-icon" href="static/css/image/熱中症_アイコン.png">
+
     <title>熱中症危険度予測AI@神戸</title>
 </head>
 <body>
     <header>
         <h1 class="title">
-            熱中症危険度予測AI@神戸
+            神戸の熱中症危険度予測サイト　Kobe Hot Vis
         </h1>
         <nav>
             <ul class="nav_ul">
-                <li class="nav_list"><a href='/'>Today</a></li>
-                <li class="nav_list"><a href="#">Tomorrow</a></li>
-                <li class="nav_list"><a href="#">Day after Tomorrow</a></li>
+                <li class="nav_list"><a href='/'>Top</a></li>
+                <li class="nav_list"><a href='#Predict'>Predict(予測)</a></li>
+                <li class="nav_list"><a href="#headsup">Heads up(注意喚起)</a></li>
             </ul>
         </nav> 
             
     </header>
-
+<div class="bg">
     <div class="exp fadeIn">
         <h4>はじめに</h4>
         <p>当サイトをご利用頂き、誠にありがとうございます。</p>
-        <p>当サイトは当日、翌日、翌々日の予想最高気温から救急搬送者数を予測し、危険度を"小、中、大、超危険"の４段階で表示するものとなっております。熱中症対策にお役立て頂けますと幸いです。</p>
+        <p>当サイトは当日、翌日、翌々日の予想最高気温・雨が降るかどうかから救急搬送者数を予測し、危険度を"小、中、大、超危険"の４段階で表示するものとなっております。熱中症対策にお役立て頂けますと幸いです。</p>
         <h4>ご使用にあたっての注意点</h4>
         <ul>
             <li>0:00に更新されます。</li>
             <li>当サイトで表示している数値はあくまで予測です。危険度が低いことは安全を保障するものではございません。</li>
             <li>測定エラーが表示される場合があります。これはAPIが数値にnullを返すことが原因です。申し訳ありませんが私では対応することが出来ません。</li>
         </ul>
-        <table border="0" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="http://www.rays-counter.com/"><img src="http://www.rays-counter.com/d508_f6_022/629509f0d82e7/" alt="アクセスカウンター" border="0"></a></td></tr><tr><td align="center"><img src="http://www.rays-counter.com/images/counter_01.gif" border="0"><img src="http://www.rays-counter.com/images/counter_02.gif" border="0"><img src="http://www.rays-counter.com/images/counter_03.gif" border="0"><img src="http://www.rays-counter.com/images/counter_04.gif" border="0" ><img src="http://www.rays-counter.com/images/counter_05.gif" border="0"></td></tr></table>
+        <div id="Predict"></div>
+        <!--<table id="Predict" border="0" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="http://www.rays-counter.com/"><img src="http://www.rays-counter.com/d508_f6_022/629509f0d82e7/" alt="アクセスカウンター" border="0"></a></td></tr><tr><td align="center"><img src="http://www.rays-counter.com/images/counter_01.gif" border="0"><img src="http://www.rays-counter.com/images/counter_02.gif" border="0"><img src="http://www.rays-counter.com/images/counter_03.gif" border="0"><img src="http://www.rays-counter.com/images/counter_04.gif" border="0" ><img src="http://www.rays-counter.com/images/counter_05.gif" border="0"></td></tr></table>-->
     </div>
     
 
-        <div class="main_div" align="center">
-            <div class = "Today fadeLeft">
-                <h1>Today：{{today}}</h1>
-                <div class="Today_denger">
-                    <h1>危険度</h1>
-                    <p>今日の危険度は</p>
-                    <h1>{{today_denger}}</h1>
-                    <p>です<p>
-                </div>
-                <div class="Today_pred">
-                    <h1>救急搬送者予測</h1>
-                    <p>今日の救急搬送人数の予測は</p>
-                    <h1>{{today_pred}}人</h1>
-                    <p>です。</p>
-                </div>
-                <div class="Today_weather">
-                    <h1>今日の天気</h1>                                 
-                    <img class="Today_weather_img" src={{today_weather_img}} width="100">
-                    <h1>{{today_weather}}</h1>
-                </div>
-                <div class="Today_Temp">
-                    <h1>予想最高気温</h1>
-                    <p>今日の予想最高気温は</p>
-                    <h1>{{today_maxtemp}}℃</h1>
-
-                    <p>です<p>
-                </div>
-            </div>
-
-            <div class="Tomorrow fadeLeft">
-                <h1>Tomorrow：{{tomorrow}}</h1>
-                <div class="Tomorrow_denger">
-                    <h1>危険度</h1>
-                    <p>明日の危険度は</p>
-                    <h1>{{tomorrow_denger}}</h1>
-                    <p>です<p>
-                </div>
-                <div class="Tomorrow_pred">
-                    <h1>救急搬送者予測</h1>
-                    <p>明日の救急搬送人数の予測は</p>
-                    <h1>{{tomorrow_pred}}人</h1>
-                    <p>です。</p>
-                </div>
-                <div class="Tomorrow_weather">
-                    <h1>明日の天気</h1>                                 
-                    <img class="Tomorrow_weather_img" src={{tomorrow_weather_img}} width="100">
-                    <h1>{{tomorrow_weather}}</h1>
-                </div>
-                <div class="Tomorrow_Temp">
-                    <h1>予想最高気温</h1>
-                    <p>明日の予想最高気温は</p>
-                    <h1>{{tomorrow_maxtemp}}℃</h1>
-                    <p>です<p>
-                </div>
-            </div>
-
-            <div class="Dat fadeLeft">
-                <h1>Day after tomorrow：{{dat}}</h1>
-                <div class="dat_denger">
-                    <h1>危険度</h1>
-                    <p>明後日の危険度は</p>
-                    <h1>{{dat_denger}}</h1>
-                    <p>です<p>
-                </div>
-                <div class="Dat_pred">
-                    <h1>救急搬送者予測</h1>
-                    <p>明後日の救急搬送人数の予測は</p>
-                    <h1>{{dat_pred}}人</h1>
-                    <p>です。</p>
-                </div>
-                <div class="Dat_weather">
-                    <h1>明後日の天気</h1>                                 
-                    <img class="Dat_weather_img" src={{dat_weather_img}} width="100">
-                    <h1>{{dat_weather}}</h1>
-                </div>
-                <div class="Dat_Temp">
-                    <h1>予想最高気温</h1>
-                    <p>明後日の予想最高気温は</p>
-                    <h1>{{dat_maxtemp}}℃</h1>
-                    <p>です<p>
-                </div>
-        </div>
+        <main class="main_div" align="center">
+            <table class="main_table fadeLeft" border="1" >
+                <tr class = "table_head">
+                    <th>日付</th>
+                    <th class="Denger">危険度</th>
+                    <th>予想搬送者数</th>
+                    <th>天気予報</th>
+                    <th>予想最高気温</th>
+                </tr>
+                <tr>
+                    <td>今日：{{today}}</td>
+                    <td class="Denger">{{today_denger}}</td>
+                    <td>{{today_pred}}人</td>
+                    <td ><img class="Today_weather_img" src={{today_weather_img}} width="100"></td>
+                    <td>{{today_maxtemp}}℃</td>
+                </tr>
+                <tr>
+                    <td>明日：{{tomorrow}}</td>
+                    <td class="Denger">{{tomorrow_denger}}</td>
+                    <td>{{tomorrow_pred}}人</td>
+                    <td><img class="Tomorrow_weather_img" src={{tomorrow_weather_img}} width="100"></td>
+                    <td>{{tomorrow_maxtemp}}℃</td>
+                </tr>
+                <tr>
+                    <td>明後日：{{dat}}</td>
+                    <td class="Denger">{{dat_denger}}</td>
+                    <td>{{dat_pred}}人</td>
+                    <td><img class="Dat_weather_img" src={{dat_weather_img}} width="100"></td>
+                    <td>{{dat_maxtemp}}℃</td>
+                </tr>
+            </table>
+            <h2 id="headsup" >注意喚起</h2>
+            <img class="headsup" src={{headsup}} width="500">
+            
+        </main>
+        <!--
+        <h2>データの出典</h2>
+        <ul>
+            <li>気象データ：天気予報 API（livedoor 天気互換）</li>
+            <li>熱中症による救急搬送者数のデータ：総務省消防庁　熱中症情報</li>
+        </ul>
+        -->
+    </div>
+        <footer>
+            <h3>©️Hidenori Nitta 2022</h3>
+        </footer>
 </body>
 </html>

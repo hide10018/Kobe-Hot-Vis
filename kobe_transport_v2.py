@@ -98,7 +98,7 @@ def transport():
     #endtime = endtime - datetime.timedelta(days=1)
     
     #HTMLに渡す変数を返す
-    return render_template("table.html",
+    return render_template("index.html",
                            today_pred = pred[0], today_maxtemp = maxtemp[0],today = day[0], today_weather = weather[0], today_denger = denger[0], today_weather_img = weather_img[0],
                            tomorrow_pred = pred[1], tomorrow_maxtemp = maxtemp[1], tomorrow = day[1], tomorrow_weather = weather[1], tomorrow_denger = denger[1], tomorrow_weather_img = weather_img[1],
                            dat_pred = pred[2], dat_maxtemp = maxtemp[2], dat = day[2], dat_weather = weather[2], dat_denger = denger[2], dat_weather_img = weather_img[2],
